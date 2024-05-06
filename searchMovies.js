@@ -26,7 +26,6 @@ export async function getMovieSearchResult(searchInput) {
 
       if (data.results.length == 0) {
         displayErrorMessage();
-        console.log('im here');
       } else if (data.results.length !==0){
         displaySearchedMovies(data.results)
       }
@@ -46,10 +45,9 @@ export async function getPersonSearchResult(searchInput) {
 
       if (data.results.length == 0) {
         displayErrorMessage();
-        console.log('im here');
       } else if (data.results.length !==0){
         displayPersons(data.results)
       }
-      
+
     })
 };
