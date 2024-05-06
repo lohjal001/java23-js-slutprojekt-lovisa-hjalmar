@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js" type="module"></script>
+    <title>LMDB</title>
+    <h1>Lovisas MDB</h1>
+    <nav>
+        <form id="searchForm">
+            <input type="text" placeholder="Type your search here" id="searchField"></input>
+            <select id="searchOptions">
+                <option value="optionM">Movies</option>
+                <option value="optionP">People</option>
+            </select>
+            <button type="submit" id="searchBtn">search</button>
+            
+            <button type="menu" id="popMovies">Most Popular Movies</button>
+            <button type="menu" id="rateMovies">Top Rated Movies</button>
+
+        </form>
+
+    </nav>
+</head>
+
+
+
+<body>
+    <ol id="movieList">
+    </ol>
+    <ol id="personsList">
+    </ol>
+
+    <div id="error"></body>
+</body>
+
+</html>
