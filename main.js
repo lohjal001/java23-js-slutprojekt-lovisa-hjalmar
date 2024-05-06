@@ -12,6 +12,7 @@ document.getElementById('searchBtn').addEventListener('click', searchEvent);
 
 
 
+
 //function for the search form, leads to fetch functions that use the display functions 
 function searchEvent(event){
     event.preventDefault();
@@ -28,4 +29,5 @@ function searchEvent(event){
     else 
         getPersonSearchResult(searchInput);
     
+
 }

@@ -9,6 +9,7 @@ const options = {
 };
 
 
+
 export async function getTopPopularMovies() {
   const listUrl = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
 

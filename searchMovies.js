@@ -1,4 +1,4 @@
-import { displaySearchedMovies } from "./display.js";
+import { displayErrorConnect, displaySearchedMovies } from "./display.js";
 import { displayPersons } from "./display.js";
 import { displayErrorMessage } from "./display.js";
 
@@ -45,6 +45,8 @@ export async function getPersonSearchResult(searchInput) {
 
       if (data.results.length == 0) {
         displayErrorMessage();
+      } if (data.results == null) {
+        displayErrorConnect()
       } else if (data.results.length !==0){
         displayPersons(data.results)
       }

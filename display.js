@@ -126,14 +126,14 @@ export function displayErrorMessage(searchInput){
     errorContainer.append(errorMessage);
 }
 
-// export function displayErrorConnect(){
-//     const errorMessage = document.createElement('h2');
+export function displayErrorConnect(){
+    const errorMessage = document.createElement('h2');
 
 
-//     errorMessage.innerText = "Error 404. We're having trouble with our connection. Please try agin later."
+    errorMessage.innerText = "We're having trouble with our connection. Please try agin later."
 
 
-//     errorContainer.append(errorMessage);
-// }
+    errorContainer.append(errorMessage);
+}
 
 
