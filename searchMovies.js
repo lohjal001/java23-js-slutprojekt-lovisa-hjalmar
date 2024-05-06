@@ -17,7 +17,7 @@ const options = {
 export async function getMovieSearchResult(searchInput) {
   const listUrl = `https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`;
 
-  await fetch(listUrl, options)
+  fetch(listUrl, options)
 
     .then(res => res.json())
     .then(data => {
@@ -43,6 +43,13 @@ export async function getPersonSearchResult(searchInput) {
     .then(res => res.json())
     .then(data => {
       console.log(data.results)
-      displayPersons(data.results)
+
+      if (data.results.length == 0) {
+        displayErrorMessage();
+        console.log('im here');
+      } else if (data.results.length !==0){
+        displayPersons(data.results)
+      }
+      
     })
 };

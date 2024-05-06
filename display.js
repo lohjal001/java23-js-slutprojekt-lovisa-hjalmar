@@ -8,6 +8,7 @@ const errorContainer = document.querySelector('#error');
 export async function displayMovies(data) {
     console.log(data);
     personContainer.innerHTML = ('');
+    movieContainer.innerHTML = ('');
 
     data.slice(0, 10).forEach((movie, index) => {
         const { title, poster_path, overview, release_date } = movie;
