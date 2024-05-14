@@ -12,7 +12,6 @@ const options = {
   }
 };
 
-
 //fetch functions for movies and person from search 
 export async function getMovieSearchResult(searchInput) {
   const listUrl = `https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`;
@@ -24,10 +23,12 @@ export async function getMovieSearchResult(searchInput) {
       console.log(data.results)
       console.log(searchInput)
 
-      if (data.results.length == 0) {
+      if (data == null) {
+        displayErrorConnect();
+      } else if (data.results.length == 0) {
         displayErrorMessage();
-      } else if (data.results.length !==0){
-        displaySearchedMovies(data.results)
+      } else {
+        displaySearchedMovies(data.results);
       }
 
     })
@@ -43,12 +44,12 @@ export async function getPersonSearchResult(searchInput) {
     .then(data => {
       console.log(data.results)
 
-      if (data.results.length == 0) {
+      if (data == null) {
+        displayErrorConnect();
+      } else if (data.results.length == 0) {
         displayErrorMessage();
-      } if (data.results == null) {
-        displayErrorConnect()
-      } else if (data.results.length !==0){
-        displayPersons(data.results)
+      } else {
+        displaySearchedMovies(data.results);
       }
 
     })

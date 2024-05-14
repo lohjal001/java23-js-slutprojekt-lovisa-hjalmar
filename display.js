@@ -118,7 +118,8 @@ export async function displaySearchedMovies(data) {
 }
 
 export function displayErrorMessage(searchInput){
-    console.log(searchInput + 'im here 22222')
+    movieContainer.innerHTML = ('');
+    personContainer.innerHTML = ('');
     const errorMessage = document.createElement('h2');
 
     errorMessage.innerHTML = 'Search cannot be found. Check your spelling and please try again.'
@@ -127,11 +128,12 @@ export function displayErrorMessage(searchInput){
 }
 
 export function displayErrorConnect(){
+    movieContainer.innerHTML = ('');
+    personContainer.innerHTML = ('');
+    console.log(searchInput + 'im here 22222')
     const errorMessage = document.createElement('h2');
 
-
     errorMessage.innerText = "We're having trouble with our connection. Please try agin later."
-
 
     errorContainer.append(errorMessage);
 }

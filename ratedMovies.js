@@ -1,4 +1,4 @@
-import { displayMovies } from "./display.js";
+import { displayErrorConnect, displayMovies } from "./display.js";
 
 const options = {
   method: 'GET',
@@ -7,8 +7,6 @@ const options = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNjc1MmM0NmM4MjhiMWI4OGExNTZiNzgwYzdmNmYzZiIsInN1YiI6IjY2MWY5YTY3ZDc1YmQ2MDE3YzMyYzJmNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aiJx1zo-fRPQlh38lFxqx_onL0EclilTbBXcnWQIoDM'
   }
 };
-
-
 
 export async function getTopRatedMovies() {
   const listUrl ='https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
@@ -19,5 +17,8 @@ export async function getTopRatedMovies() {
     .then(data => {
       console.log(data.results)
       displayMovies(data.results)
+      if (data == null){
+        displayErrorConnect();
+      }
     })
 };

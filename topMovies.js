@@ -1,4 +1,4 @@
-import { displayMovies } from "./display.js";
+import { displayErrorConnect, displayMovies } from "./display.js";
 
 const options = {
   method: 'GET',
@@ -9,7 +9,6 @@ const options = {
 };
 
 
-
 export async function getTopPopularMovies() {
   const listUrl = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
 
@@ -18,6 +17,9 @@ export async function getTopPopularMovies() {
     .then(data => {
       console.log(data.results)
       displayMovies(data.results)
+      if (data == null){
+        displayErrorConnect();
+      }
     })
 };
 
