@@ -28,7 +28,7 @@ export async function getMovieSearchResult(searchInput) {
       } else if (data.results.length == 0) {
         displayErrorMessage();
       } else {
-        displayPersons(data.results);
+        displaySearchedMovies(data.results);
       }
 
     })
@@ -49,7 +49,7 @@ export async function getPersonSearchResult(searchInput) {
       } else if (data.results.length == 0) {
         displayErrorMessage();
       } else {
-        displaySearchedMovies(data.results);
+        displayPersons(data.results);
       }
 
     })

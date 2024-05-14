@@ -16,9 +16,10 @@ export async function getTopRatedMovies() {
     .then(res => res.json())
     .then(data => {
       console.log(data.results)
-      displayMovies(data.results)
       if (data == null){
         displayErrorConnect();
+      }else{        
+        displayMovies(data.results)
       }
     })
 };
