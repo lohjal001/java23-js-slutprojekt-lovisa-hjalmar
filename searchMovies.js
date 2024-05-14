@@ -28,7 +28,7 @@ export async function getMovieSearchResult(searchInput) {
       } else if (data.results.length == 0) {
         displayErrorMessage();
       } else {
-        displaySPersons(data.results);
+        displayPersons(data.results);
       }
 
     })
