@@ -1,4 +1,4 @@
-import { displayErrorConnect, displaySearchedMovies } from "./display.js";
+import { displayErrorConnect, displayMovies, displaySearchedMovies } from "./display.js";
 import { displayPersons } from "./display.js";
 import { displayErrorMessage } from "./display.js";
 
@@ -18,20 +18,34 @@ export async function getMovieSearchResult(searchInput) {
 
   fetch(listUrl, options)
 
-    .then(res => res.json())
+  .then(res => {
+    if (!res.ok) {
+      throw new Error('error message');
+    }
+    return res.json();
+  })
     .then(data => {
-      console.log(data.results)
-      console.log(searchInput)
-
-      if (data == null) {
-        displayErrorConnect();
-      } else if (data.results.length == 0) {
+    if (data.results.length == 0) {
         displayErrorMessage();
       } else {
         displaySearchedMovies(data.results);
       }
-
+    }).catch( error => {console.log(error)
+      displayErrorConnect(error.message);
     })
+    // .then(res => {
+    //   res.json())
+    // .then(data => {
+    //   console.log(data.results)
+    //   console.log(searchInput)
+
+    // if (data.results.length == 0) {
+    //     displayErrorMessage();
+    //   } else {
+    //     displaySearchedMovies(data.results);
+    //   }
+
+    // })
 
 };
 

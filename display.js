@@ -9,6 +9,7 @@ export async function displayMovies(data) {
     console.log(data);
     personContainer.innerHTML = ('');
     movieContainer.innerHTML = ('');
+    errorContainer.innerHTML = ('');
 
     data.slice(0, 10).forEach((movie, index) => {
         const { title, poster_path, overview, release_date } = movie;
@@ -40,6 +41,7 @@ export async function displayMovies(data) {
 export async function displayPersons(data) {
     personContainer.innerHTML = ('');
     movieContainer.innerHTML = ('');
+    errorContainer.innerHTML = ('');
 
     data.forEach((person) => {
         console.log(person);
@@ -91,6 +93,7 @@ export async function displaySearchedMovies(data) {
     console.log(data);
     movieContainer.innerHTML = ('');
     personContainer.innerHTML = ('');
+    errorContainer.innerHTML = ('');
 
     data.forEach((movie) => {
         const { title, poster_path, overview, release_date } = movie;
@@ -117,9 +120,10 @@ export async function displaySearchedMovies(data) {
     });
 }
 
-export function displayErrorMessage(searchInput){
+export function displayErrorMessage(){
     movieContainer.innerHTML = ('');
     personContainer.innerHTML = ('');
+    errorContainer.innerHTML = ('');
     const errorMessage = document.createElement('h2');
 
     errorMessage.innerHTML = 'Search cannot be found. Check your spelling and please try again.'
@@ -127,10 +131,10 @@ export function displayErrorMessage(searchInput){
     errorContainer.append(errorMessage);
 }
 
-export function displayErrorConnect(){
+export function displayErrorConnect(error){
     movieContainer.innerHTML = ('');
     personContainer.innerHTML = ('');
-    console.log(searchInput + 'im here 22222')
+    errorContainer.innerHTML = ('');
     const errorMessage = document.createElement('h2');
 
     errorMessage.innerText = "We're having trouble with our connection. Please try agin later."

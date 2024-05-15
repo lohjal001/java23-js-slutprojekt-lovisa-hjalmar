@@ -13,15 +13,23 @@ export async function getTopPopularMovies() {
   const listUrl = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
 
   fetch(listUrl, options)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data.results)
-      displayMovies(data.results)
-      if (data == null){
-        displayErrorConnect();
-      }
-    })
+  
+  .then(res => { 
+    if (!res.ok) {
+    throw new Error('error messg'); 
+  }
+  return res.json();
+})
+  .then(data => {     
+    console.log(data.results)
+    displayMovies(data.results) 
+}).catch( error =>{ console.log(error)
+  displayErrorConnect(error.message);
+})
 };
+
+
+
 
 
 

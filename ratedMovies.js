@@ -13,13 +13,16 @@ export async function getTopRatedMovies() {
 
   fetch(listUrl, options)
 
-    .then(res => res.json())
-    .then(data => {
+    .then(res => { 
+      if (!res.ok) {
+      throw new Error('error messg'); 
+    }
+    return res.json();
+  })
+    .then(data => {     
       console.log(data.results)
-      if (data == null){
-        displayErrorConnect();
-      }else{        
-        displayMovies(data.results)
-      }
-    })
+      displayMovies(data.results) 
+  }).catch( error =>{ console.log(error)
+    displayErrorConnect(error.message);
+  })
 };
